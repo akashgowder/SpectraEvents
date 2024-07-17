@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome</h2>
+        <form id="loginForm">
+            <label for="firstName">First name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="otp">OTP (optional):</label>
+            <input type="text" id="otp" name="otp">
+
+            <button type="button" onclick="submitForm()">Submit</button>
+             
+            <a href="login.html"> already have an account </a>
+   
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('loginForm');
+            const formData = new FormData(form);
+
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const otp = formData.get('otp');
+
+            if (firstName && lastName && email && password) {
+                console.log('First Name:', firstName);
+                console.log('Last Name:', lastName);
+                console.log('Email:', email);
+                console.log('Password:', password);
+                console.log('OTP:', otp);
+                alert('Form submitted successfully!');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        }
+    </script>
+</body>
+</html>
